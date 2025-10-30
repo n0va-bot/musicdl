@@ -4,7 +4,7 @@ import musicdl.metadata as metadata
 def main():
     url = argv[1]
     print(url)
-    result = metadata.search("How do you do (nightcore)")
+    result = metadata.search("You Wouldn't Know", "Jonathan Coulton feat. Ellen McLain")
     import json
     json.dump(result, open("result.json", "w"), indent=4)
 
