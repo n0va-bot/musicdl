@@ -1,12 +1,11 @@
 from sys import argv
-import musicdl.metadata as metadata
+from musicdl.download import download
+from musicdl.metadata import search
 
 def main():
     url = argv[1]
-    print(url)
-    result = metadata.search("You Wouldn't Know", "Jonathan Coulton feat. Ellen McLain")
-    import json
-    json.dump(result, open("result.json", "w"), indent=4)
+    title, artist, album = download(url)
+    results = search(title, artist, album)
 
 if __name__ == '__main__':
     main()
