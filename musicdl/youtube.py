@@ -1,6 +1,6 @@
 import yt_dlp
 
-def download(url: str):
+def download(url: str) -> tuple[str | None, str | None, str | None]:
     ydl_opts = {
         'format': 'bestaudio/best',
         'postprocessors': [{
@@ -13,8 +13,8 @@ def download(url: str):
     ydl = yt_dlp.YoutubeDL(ydl_opts) #type: ignore
     # get data
     info = ydl.extract_info(url, download=False)
-    title = info['title']
-    artist = info['creator']
+    title = info['title'] if 'title' in info else None
+    artist = info['creator'] if 'creator' in info else None
     album = None
 
     # download

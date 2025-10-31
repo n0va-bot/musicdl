@@ -5,8 +5,8 @@ class Song():
             artist: str,
             album: str,
             album_artist: str,
-            track_number: str,
-            cover: str
+            track_number: int,
+            cover: str | None = None
             ) -> None:
 
         self.title = title
