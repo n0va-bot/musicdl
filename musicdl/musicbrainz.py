@@ -26,4 +26,12 @@ def search(title: str | None, artist: str | None = None, album: str | None = Non
             track_number = track['number']
             break
     
-    return Song(title, artist, album, album_artist, track_number)
+    release_id = result['recording-list'][0]['release-list'][0]['id']
+    cover_images = musicbrainzngs.get_image_list(release_id)['images']
+    cover = None
+    for image in cover_images:
+        if "Front" in image["types"] and image["approved"]:
+            cover = image["thumbnails"]["large"]
+            break
+
+    return Song(title, artist, album, album_artist, track_number, cover)

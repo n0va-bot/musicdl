@@ -116,3 +116,7 @@ dmypy.json
 .vscode/
 
 result.json
+
+# SUPERCOPY
+copy.md
+SUPERCOPY.py
